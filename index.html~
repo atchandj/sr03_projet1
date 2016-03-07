@@ -3,6 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Page d'accueil du trobinoscope</title>
+		<!-- Latest compiled and minified CSS --><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 	</head>
 	<body>		
 		<header>
@@ -12,18 +17,29 @@
 			<form method="post" action="script.php">
 				<fieldset>
 					<legend>Personne recherchée</legend>
-					<p>
-						<label for="nom">Votre nom : </label><input type="text" name="nom" placeholder="Nom" id="nom" size="30" maxlength="50" required="required" autofocus/>
-						<br/>
-						<label for="prenom">Votre prénom : </label><input type="text" name="prenom" placeholder="Prénom" id="prenom" size="30" maxlength="50" required="required"/>
-						<br/>
-						<input type="submit" value="Envoyer"/>
-					</p>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="nom">Votre nom : </label>
+								<input type="text" name="nom" placeholder="Nom" id="nom" class="form-control" value="AAAAAA" required="required" autofocus/>
+							</div>
+
+							<div class="form-group">
+								<label for="prenom">Votre prénom : </label>
+								<input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" required="required"/>
+							</div>
+
+							<button type="submit" class="btn btn-default">Envoyer</button>
+						</div>
 				</fieldset>
 			</form>
 		</section>
 		<footer>
+			<br />
 			<p>ARTCHOUNIN Daniel/ TCHANDJOU NGOKO Adrien</p>
 		</footer>
+
+	
+	<script src="form.js"></script>
+
 	</body>
 </html>
