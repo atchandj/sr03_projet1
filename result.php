@@ -13,13 +13,32 @@
 			<h1>Trombinoscope</h1>
 		</header>
 		<section>
-			<p>
-				<?php
-					$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.strtolower(htmlspecialchars($_POST['nom'])).'&prenom='.strtolower(htmlspecialchars($_POST['prenom']))); 
-					$json = json_decode($str, true);
+			<?php
+				$surnameLower = strtolower(htmlspecialchars($_POST['nom']));
+				$nameLower = strtolower(htmlspecialchars($_POST['prenom']));
+				$surnameUpper = strtoupper(htmlspecialchars($_POST['nom']));
+				$nameCapitalize = ucfirst(htmlspecialchars($_POST['nom']));
+				$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower); 
+				echo('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower);
+				if(!$str){
+					echo('<figure>');
+					echo("<img src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"Je suis inconnu\"/>");
+					echo("<figcaption>Photo de ".$nameCapitalize." ".$surnameUpper."</figcaption>");
+					echo('</figure>');					
+				}
+				else{
+					$json = json_decode($str, true);					
 					echo('<pre>'.print_r($json, true).'</pre>');
-				?>
-			</p>
+					echo('<br/>');
+					$login = $json[0]['login'];
+					echo('<figure>');
+					echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$surnameUpper." ".$nameCapitalize. "\" title=\"Je m'appelle ".$nameCapitalize." ".$surnameUpper."\"/>");
+					echo("<figcaption>Photo de ".$nameCapitalize." ".$surnameUpper."</figcaption>");
+					echo('</figure>');
+				}
+
+			?>
+
 		</section>
 		<footer>
 			<br/>
