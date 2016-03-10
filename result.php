@@ -28,17 +28,17 @@
 				}
 				else{
 					$json = json_decode($str, true);					
-					echo('<pre>'.print_r($json, true).'</pre>');
-					echo('<br/>');
-					$login = $json[0]['login'];
+					// echo('<pre>'.print_r($json, true).'</pre>'); // test
 					echo('<figure>');
-					echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$surnameUpper." ".$nameCapitalize. "\" title=\"Je m'appelle ".$nameCapitalize." ".$surnameUpper."\"/>");
-					echo("<figcaption>Photo de ".$nameCapitalize." ".$surnameUpper."</figcaption>");
+					foreach ($json  as $key => $value){						
+						$login = $value['login'];	
+						$nameAndSurname = $value['nom'];					
+						echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"Je m'appelle ".$nameAndSurname."\"/>");
+					}
+					echo("<figcaption>Photo des étudiants</figcaption>");
 					echo('</figure>');
 				}
-
 			?>
-
 		</section>
 		<footer>
 			<br/>
