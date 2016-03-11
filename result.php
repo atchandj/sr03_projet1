@@ -16,19 +16,17 @@
 			<?php
 				$surnameLower = strtolower(htmlspecialchars($_POST['nom']));
 				$nameLower = strtolower(htmlspecialchars($_POST['prenom']));
-				$surnameUpper = strtoupper(htmlspecialchars($_POST['nom']));
-				$nameCapitalize = ucfirst(htmlspecialchars($_POST['nom']));
 				$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower); 
-				echo('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower);
-				if(!$str){
+				$json = json_decode($str, true);
+				// echo('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower); // Test
+				if(!$json || empty($json)){
 					echo('<figure>');
 					echo("<img src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"Je suis inconnu\"/>");
-					echo("<figcaption>Photo de ".$nameCapitalize." ".$surnameUpper."</figcaption>");
-					echo('</figure>');					
+					echo("<figcaption>Photo d'un inconnu</figcaption>");
+					echo("</figure>");					
 				}
-				else{
-					$json = json_decode($str, true);					
-					// echo('<pre>'.print_r($json, true).'</pre>'); // test
+				else{										
+					// echo('<pre>'.print_r($json, true).'</pre>'); // Test
 					echo('<figure>');
 					foreach ($json  as $key => $value){						
 						$login = $value['login'];	
@@ -38,6 +36,8 @@
 					echo("<figcaption>Photo des étudiants</figcaption>");
 					echo('</figure>');
 				}
+				$link = "./index.php?name=".$nameLower."&surname=".$surnameLower;
+				echo("<p><a href=\"".$link."\">Vers le formulaire du trombinosope</a></p>");
 			?>
 		</section>
 		<footer>
