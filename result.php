@@ -5,6 +5,7 @@
 		<title>Page d'accueil du trobinoscope</title>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>		
 		<header>
@@ -28,8 +29,15 @@
 					echo('<figure>');
 					foreach ($json  as $key => $value){						
 						$login = $value['login'];	
-						$nameAndSurname = $value['nom'];					
-						echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"Je m'appelle ".$nameAndSurname."\"/>");
+						$nameAndSurname = $value['nom'];
+						
+						if($value['autorisation'] == "N"){
+							echo("<img src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/>");						
+						}
+						else{
+							echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/>");
+						}
+							
 						echo("<br/>");
 					}
 					echo("<figcaption>Photo des étudiants</figcaption>");

@@ -3,8 +3,8 @@ var $name = $('#nom'),
 
 var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span>Veuillez entrez un nom ou un prénom valide !</div>';
 
-$name.keypress(function(){
-	if($name.val().length < 2){
+$name.keydown(function(){
+	if($name.val().length < 1){
 		$name.parent().addClass("has-error");
 	}
 	else{
@@ -14,8 +14,8 @@ $name.keypress(function(){
 	}
 });
 
-$firstName.keypress(function(){
-	if($firstName.val().length < 2){
+$firstName.keydown(function(){
+	if($firstName.val().length < 1){
 		$firstName.parent().addClass("has-error");
 	}
 	else{

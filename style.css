@@ -5,3 +5,8 @@
 .glyphicon-exclamation-sign{
 	margin-right : 5px;
 }
+
+img{
+	width: 96px;
+	position: inline-block;
+}
