@@ -10,7 +10,7 @@
 	</head>
 	<body>		
 		<header>
-			<h1>Trombinoscope</h1>
+			<h1 class="text-center">Trombinoscope</h1>
 		</header>
 		<section>
 			<?php 
@@ -18,27 +18,34 @@
 				$name = empty($_GET['name'])?"":htmlspecialchars($_GET['name']);
 			?>
 			<form method="post" action="result.php" onSubmit="return controlForm()">
-				<fieldset>
-					<legend>Personne recherchée</legend>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="nom">Votre nom : </label>
-								<input type="text" name="nom" placeholder="Nom" id="nom" class="form-control" value="<?php echo($surname); ?>" autofocus/>
-							</div>
+				<div class="row">
+					<div class="col-md-4 col-lg-offset-4 " >
+						<div class="panel panel-default">
+						  	<div class="panel-heading">Personne recherchée</div>
+						  	<div class="panel-body">
+								<div class="form-group">
+									<label for="nom">Votre nom : </label>
+									<input type="text" name="nom" placeholder="Nom" id="nom" class="form-control" value="<?php echo($surname); ?>" autofocus/>						
+								</div>
 
-							<div class="form-group">
-								<label for="prenom">Votre prénom : </label>
-								<input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" value="<?php echo($name); ?>" />
-							</div>
-							<button type="submit" class="btn btn-default">Envoyer</button>
+								<div class="form-group">
+									<label for="prenom">Votre prénom : </label>
+									<input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" value="<?php echo($name); ?>" />
+								</div>
+								<button type="submit" class="btn btn-default ">Envoyer</button>
+								<div id="errorMsg"></div>
+						  	</div>
 						</div>
-				</fieldset>
+					</div>
+				</div>
 			</form>
-			<div id="errorMsg"></div>
+			
 		</section>
 		<footer>
 			<br />
-			<p>ARTCHOUNIN Daniel/ TCHANDJOU NGOKO Adrien</p>
+			<div class="col-md-12 text-center">
+				<p>ARTCHOUNIN Daniel/ TCHANDJOU NGOKO Adrien</p>
+			</div>
 		</footer>	
 	<script src="form.js"></script>
 	</body>
