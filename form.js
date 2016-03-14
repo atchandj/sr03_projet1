@@ -1,28 +1,14 @@
 var $name = $('#nom'),
 	$firstName = $('#prenom');
 
-var isNameCorrect = false,
-	isFirstNameCorrect = false;
+function controlForm(){
+	if($name.val().length == 0 && $firstName.val().length == 0){
+		alert("Veuillez entrez un nom ou un prénom.");
+		return false;
+	}
+	return true;		
+}
 
-$name.change(function(){
-	if($name.val().length >= 2)
-		isNameCorrect = true;
-	else
-		isNameCorrect = false;
-
-	if(!isNameCorrect && !isFirstNameCorrect)
-		alert("Error");
-});
-
-$firstName.change(function(){
-	if($firstName.val().length >= 2)
-		isFirstNameCorrect = true;
-	else
-		isFirstNameCorrect = false;
-
-	if(!isNameCorrect && !isFirstNameCorrect)
-		alert("Error");
-});
 
 
 
