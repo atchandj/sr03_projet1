@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Page d'accueil du trobinoscope</title>
+		 <link href="style.css" rel="stylesheet">
 		 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -33,6 +34,7 @@
 						</div>
 				</fieldset>
 			</form>
+			<div id="errorMsg"></div>
 		</section>
 		<footer>
 			<br />

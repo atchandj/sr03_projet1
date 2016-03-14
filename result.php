@@ -30,6 +30,7 @@
 						$login = $value['login'];	
 						$nameAndSurname = $value['nom'];					
 						echo("<img src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"Je m'appelle ".$nameAndSurname."\"/>");
+						echo("<br/>");
 					}
 					echo("<figcaption>Photo des étudiants</figcaption>");
 					echo('</figure>');
