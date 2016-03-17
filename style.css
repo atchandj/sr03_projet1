@@ -11,9 +11,19 @@ img{
 	margin: 0 auto;
 }
 
+section{
+	background: #;
+	color: #2d2d30;
+}
 
+footer{
+	padding-bottom: 3px;
+	padding-top: 8px;
+	background: #2d2d30;
+	color: #bdbdbd;	
+}
 
-
-
-
-
+#panel-heading-custom{
+	background: #2d2d30;
+	color: #bdbdbd;
+}

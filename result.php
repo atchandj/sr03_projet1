@@ -8,8 +8,11 @@
 		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>	
-		<div class="container">	
-			<?php include("./header.php"); ?>
+		<div class="fluid-container">	
+			<?php 
+				include("./header.php"); 
+				displayHeader("Résultats");
+			?>
 			<section>
 				<?php
 					$surnameLower = strtolower(htmlspecialchars($_POST['nom']));
