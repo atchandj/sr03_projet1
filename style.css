@@ -23,7 +23,18 @@ footer{
 	color: #bdbdbd;	
 }
 
-#panel-heading-custom{
+.panel-default > .panel-heading-custom, .panel-default > .panel-footer-custom, #panel-heading-custom{
 	background: #2d2d30;
 	color: #bdbdbd;
+}
+
+.panel{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#centered{
+	text-align: center;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }

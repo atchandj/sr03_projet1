@@ -24,7 +24,9 @@
 					<div class="row">
 						<div class="col-md-4 col-lg-offset-4 " >
 							<div class="panel panel-default">
-							  	<div class="panel-heading" id="panel-heading-custom">Personne recherchée</div>
+							  	<div class="panel-heading" id="panel-heading-custom">
+							  		Personne recherchée
+							  	</div>
 							  	<div class="panel-body">
 									<div class="form-group">
 										<label for="nom">Votre nom : </label>

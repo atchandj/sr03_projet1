@@ -1,7 +1,11 @@
 var $name = $('#nom'),
 	$firstName = $('#prenom');
 
-var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span>Veuillez entrez un nom ou un prénom valide !</div>';
+var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert">' + 
+'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+'<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>' + 
+'<span class="sr-only">Error:</span>Veuillez entrez un nom ou un prénom valide' + 
+'!</div>';
 
 $name.keydown(function(){
 	if($name.val().length < 1){
@@ -33,9 +37,5 @@ function controlForm(){
 		}
 		return true;
 	}
-	return true;		
+	return true;
 }
-
-
-
-
