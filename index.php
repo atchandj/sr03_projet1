@@ -24,37 +24,23 @@
 				<div class="row">
 					<div class="col-md-4 col-lg-offset-4 " >
 						<nav>
-							<ul class="nav nav-pills">
-							  <li role="presentation" class="active"><a href="#"><strong>Recherche par individu</strong></a></li>
-							  <li role="presentation"><a href="#"><strong>Recherche par structure</strong></a></li>
+							<ul class="nav nav-pills" role="tablist">
+							  <li role="presentation" class="active"><a href="#individu" aria-controls="individu" role="tab" data-toggle="tab"><strong>Recherche par individu</strong></a></li>
+							  <li role="presentation"><a href="#structure" aria-controls="structure" role="tab" data-toggle="tab"><strong>Recherche par structure</strong></a></li>
 							</ul>
 						</nav>
-						<form method="post" action="result.php" onSubmit="return controlForm()">
-							<div class="panel panel-default">
-							  	<div class="panel-heading" id="panel-heading-custom">
-							  		Personne recherchée
-							  	</div>
-							  	<div class="panel-body">
-									<div class="form-group">
-										<label for="nom">Votre nom : </label>
-										<input type="text" name="nom" placeholder="Nom" id="nom" class="form-control" value="<?php echo($surname); ?>" autofocus/>						
-									</div>
-
-									<div class="form-group">
-										<label for="prenom">Votre prénom : </label>
-										<input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" value="<?php echo($name); ?>" />
-									</div>
-									<button type="submit" class="btn btn-default ">Envoyer</button>
-									<div id="errorMsg"></div>
-							  	</div>
+							<div class="tab-content">
+								<?php 
+									include("./formulaire_individu.php"); 
+									include("./formulaire_structure.html"); 
+								?>
 							</div>
-						</form>	
 					</div>
 				</div>
 							
 			</section>
 		<?php include("./footer.php"); ?>
 	</div>
-		<script src="form.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>
