@@ -1,4 +1,7 @@
-
+var $name = $('#nom'),
+	$firstName = $('#prenom'),
+	$selectPere = $('#selectPere'),
+	$selectFils = $('selectFils');
 
 var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert">' + 
 '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
@@ -6,7 +9,13 @@ var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert">' +
 '<span class="sr-only">Error:</span>Veuillez entrez un nom ou un prénom valide' + 
 '!</div>';
 
-function controlForm(){
+var errorMsgFils ='<div id="errorMsgFils" class="alert alert-danger" role="alert">' + 
+'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+'<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>' + 
+'<span class="sr-only">Error:</span>Veuillez remplir correctement le formulaire' + 
+'!</div>';
+
+function controlPeopleForm(){
 	if($name.val().length < 2 ){
 		if($firstName.val().length < 2){
 			$('#errorMsg').html(errorMsg);
@@ -16,6 +25,12 @@ function controlForm(){
 	}
 	return true;
 }
+
+/*function controlStructForm(){
+	if($selectPere.val() == null)
+		return false;
+	else if($selectFils == u)$selectFils == u
+}*/
 
 function ajaxRequest(url, callback, data){
 	$.ajax({
@@ -36,8 +51,6 @@ function ajaxRequest(url, callback, data){
 
 //==============================================================================
 window.onload = function() { //Au chargement de la page
-	var $name = $('#nom'),
-		$firstName = $('#prenom');
 	
 	$name.keydown(function(){
 		if($name.val().length < 1){
@@ -63,7 +76,7 @@ window.onload = function() { //Au chargement de la page
 	
 	var updateSelectPere = function(data){
 		for(i = 0, max = data.length; i < max; i++ ){
-			$('#selectPere').append('<option value="'+data[i].structNomId+'">'+ data[i].structureLibelle +'</option>');
+			$selectPere.append('<option value="'+data[i].structNomId+'">'+ data[i].structureLibelle +'</option>');
 		}
 	};
 	
@@ -71,9 +84,9 @@ window.onload = function() { //Au chargement de la page
 	ajaxRequest('structureRequest.php', updateSelectPere);
 	
 	//A chaque changement de valeur du selectPere
-	$('#selectPere').on('change', function() {
+	$selectPere.on('change', function() {
 		var updateSelectFils = function(data){
-			$selectFils = $('#selectFils'),
+			
 			$selectFils.empty();
 			$selectFils.append('<option selected disabled>--</option>');
 			for(i = 0, max = data.length; i < max; i++ ){

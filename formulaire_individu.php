@@ -1,6 +1,6 @@
 <!-- Forumulaire pour recherche par individu -->
 <div role="tabpanel" class="tab-pane active" id="individu">
-	<form method="post" action="result.php" onSubmit="return controlForm()">
+	<form method="post" action="result.php" onSubmit="return controlPeopleForm()">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="panel-heading-custom">
 				Personne recherchée
