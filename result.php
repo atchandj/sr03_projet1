@@ -47,7 +47,7 @@
           					echo("</div>"); // End of the panel heading
           					echo("<div class=\"panel-body\">"); // Beginning of the panel body
 							if($value['autorisation'] == "N"){
-								echo("<img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/>");						
+								echo("<img class=\"img-responsive\" src=\"/images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/>");						
 							}
 							else{
 								echo("<img class=\"img-responsive\" src=\"https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/>");
