@@ -20,9 +20,16 @@
 					$surname = empty($_GET['surname'])?"":htmlspecialchars($_GET['surname']); 
 					$name = empty($_GET['name'])?"":htmlspecialchars($_GET['name']);
 				?>
-				<form method="post" action="result.php" onSubmit="return controlForm()">
-					<div class="row">
-						<div class="col-md-4 col-lg-offset-4 " >
+				
+				<div class="row">
+					<div class="col-md-4 col-lg-offset-4 " >
+						<nav>
+							<ul class="nav nav-pills">
+							  <li role="presentation" class="active"><a href="#"><strong>Recherche par individu</strong></a></li>
+							  <li role="presentation"><a href="#"><strong>Recherche par structure</strong></a></li>
+							</ul>
+						</nav>
+						<form method="post" action="result.php" onSubmit="return controlForm()">
 							<div class="panel panel-default">
 							  	<div class="panel-heading" id="panel-heading-custom">
 							  		Personne recherchée
@@ -41,9 +48,10 @@
 									<div id="errorMsg"></div>
 							  	</div>
 							</div>
-						</div>
+						</form>	
 					</div>
-				</form>				
+				</div>
+							
 			</section>
 		<?php include("./footer.php"); ?>
 	</div>
