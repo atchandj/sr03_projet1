@@ -1,7 +1,7 @@
 var $name = $('#nom'),
 	$firstName = $('#prenom'),
 	$selectPere = $('#selectPere'),
-	$selectFils = $('selectFils');
+	$selectFils = $('#selectFils');
 
 var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert">' + 
 '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
@@ -86,7 +86,6 @@ window.onload = function() { //Au chargement de la page
 	//A chaque changement de valeur du selectPere
 	$selectPere.on('change', function() {
 		var updateSelectFils = function(data){
-			
 			$selectFils.empty();
 			$selectFils.append('<option selected disabled>--</option>');
 			for(i = 0, max = data.length; i < max; i++ ){
