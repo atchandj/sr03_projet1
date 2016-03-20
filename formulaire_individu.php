@@ -7,12 +7,12 @@
 			</div>
 			<div class="panel-body">
 				<div class="form-group">
-					<label for="nom">Votre nom : </label>
+					<label for="nom">Nom : </label>
 					<input type="text" name="nom" placeholder="Nom" id="nom" class="form-control" value="<?php echo($surname); ?>" autofocus/>						
 				</div>
 
 				<div class="form-group">
-					<label for="prenom">Votre prénom : </label>
+					<label for="prenom">Prénom : </label>
 					<input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" value="<?php echo($name); ?>" />
 				</div>
 				<button type="submit" class="btn btn-default ">Envoyer</button>
