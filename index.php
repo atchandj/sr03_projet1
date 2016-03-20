@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<title>Page d'accueil du trobinoscope</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="style.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="js/jquery-2.2.2.min.js"></script>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body>		
@@ -41,6 +41,6 @@
 			</section>
 		<?php include("./footer.php"); ?>
 	</div>
-		<script src="script.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>
