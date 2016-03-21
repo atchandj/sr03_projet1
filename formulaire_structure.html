@@ -1,6 +1,6 @@
 <!-- Forumulaire pour recherche par structure -->
 <div role="tabpanel" class="tab-pane" id="structure">
-	<form method="post" action="result.php" onSubmit=""> <!--Ajouter methode et fonction de validation-->
+	<form method="post" action="result.php" onSubmit="return controlStructForm()"> <!--Ajouter methode et fonction de validation-->
 		<div class="panel panel-default">
 			<div class="panel-heading" id="panel-heading-custom">
 				Rechercher par structure
@@ -18,7 +18,7 @@
 					</select>
 				</div>
 				<button type="submit" class="btn btn-default ">Envoyer</button>
-				<div id="errorMsgFils"></div>
+				<div id="errorMsgStruct"></div>
 			</div>
 		</div>
 	</form>

@@ -9,10 +9,10 @@ var errorMsg ='<div id="errorMsg" class="alert alert-danger" role="alert">' +
 '<span class="sr-only">Error:</span>Veuillez entrez un nom ou un prénom valide' + 
 '!</div>';
 
-var errorMsgFils ='<div id="errorMsgFils" class="alert alert-danger" role="alert">' + 
+var errorMsgStruct ='<div id="errorMsgStruct" class="alert alert-danger" role="alert">' + 
 '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
 '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>' + 
-'<span class="sr-only">Error:</span>Veuillez remplir correctement le formulaire' + 
+'<span class="sr-only">Error:</span>Vous devez sélctionner une structure' + 
 '!</div>';
 
 function controlPeopleForm(){
@@ -26,11 +26,15 @@ function controlPeopleForm(){
 	return true;
 }
 
-/*function controlStructForm(){
-	if($selectPere.val() == null)
+function controlStructForm(){
+	if($selectPere.val() == null){
+		$selectPere.parent().addClass("has-error");
+		$('#errorMsgStruct').html(errorMsgStruct);
 		return false;
-	else if($selectFils == u)$selectFils == u
-}*/
+	}
+	return true;
+	//else if($selectFils == u)$selectFils == u
+}
 
 function ajaxRequest(url, callback, data){
 	$.ajax({
@@ -48,6 +52,8 @@ function ajaxRequest(url, callback, data){
 
     });
 }
+
+function nameVer
 
 //==============================================================================
 window.onload = function() { //Au chargement de la page
@@ -89,7 +95,7 @@ window.onload = function() { //Au chargement de la page
 			$selectFils.empty();
 			$selectFils.append('<option selected disabled>--</option>');
 			for(i = 0, max = data.length; i < max; i++ ){
-				$selectFils.append('<option value="'+data[i].structNomId+'">'+ data[i].structureLibelle +'</option>');
+				$selectFils.append('<option value="'+data[i].structure.structId+'">'+ data[i].structureLibelle +'</option>');
 			}
 		};
 		data = {
