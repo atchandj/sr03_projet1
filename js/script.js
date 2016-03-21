@@ -47,6 +47,10 @@ function verificationFormElement($formElement){
 }
 
 //Listeners
-$name.keydown(verificationFormElement($name););
-$firstName.keydown(verificationFormElement($firstName););
+$name.keydown(function(){
+	verificationFormElement($name);
+});
+$firstName.keydown(function(){
+	verificationFormElement($firstName);
+});
 
