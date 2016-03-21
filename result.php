@@ -86,17 +86,18 @@
 		          					echo("<div class=\"panel-body\">"); // Beginning of the panel body
 		          					// Management of the display of the image and of the potential problems
 									if($authorization == "N"){
-										echo("<img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/>");
+										echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 									}
 									else{
 										$imageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login;
 										$imageContent = file_get_contents($imageURL);
 										if(substr($imageContent, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
-											echo("<img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/>");
+											echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 										}
 										else{
 											// If we are here, it means that everything is ok.
-											echo("<img class=\"img-responsive\" src=\"".$imageURL."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/>");
+											$bigImageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur?username=".$login;
+											echo("<a href=\"".$bigImageURL."\"><img class=\"img-responsive\" src=\"".$imageURL."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/></a>");
 										}							
 									}
 									echo("</div>"); // End of the panel body

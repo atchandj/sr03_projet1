@@ -36,11 +36,10 @@
 								?>
 							</div>
 					</div>
-				</div>
-							
+				</div>							
 			</section>
 		<?php include("./footer.php"); ?>
-	</div>
+		</div>
 		<script src="js/script.js"></script>
 		<script src="js/ajax.js"></script>
 	</body>
