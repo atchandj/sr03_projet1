@@ -42,5 +42,6 @@
 		<?php include("./footer.php"); ?>
 	</div>
 		<script src="js/script.js"></script>
+		<script src="js/ajax.js"></script>
 	</body>
 </html>

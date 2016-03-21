@@ -16,12 +16,11 @@ var errorMsgStruct ='<div id="errorMsgStruct" class="alert alert-danger" role="a
 '!</div>';
 
 function controlPeopleForm(){
-	if($name.val().length < 2 ){
-		if($firstName.val().length < 2){
-			$('#errorMsg').html(errorMsg);
-			return false;
-		}
-		return true;
+	nameVerification();
+	firstNameVerification();
+	if($name.parent().hasClass('has-error') || $name.parent().hasClass('has-error')){
+		$('#errorMsg').html(errorMsg);
+		return false;
 	}
 	return true;
 }
@@ -33,76 +32,33 @@ function controlStructForm(){
 		return false;
 	}
 	return true;
-	//else if($selectFils == u)$selectFils == u
 }
 
-function ajaxRequest(url, callback, data){
-	$.ajax({
-       url : url,
-       type : 'GET',
-       dataType : 'JSON',
-	   data : data,
-       success : function(data, statut){ // success est toujours en place, bien sûr !
-           callback(data);
-       },
-
-       error : function(resultat, statut, erreur){
-
-       }
-
-    });
+//Vérifis que le nom est bien rempli
+function nameVerification(){
+	if($name.val().length < 1){
+		$name.parent().addClass("has-error");
+	}
+	else{
+		$name.parent().removeClass("has-error");
+		$firstName.parent().removeClass("has-error");
+		$('#errorMsg').html("");	
+	}
 }
 
-//function nameVer
+//Vérifis que le prénom est bien rempli
+function firstNameVerification(){
+	if($firstName.val().length < 1){
+		$firstName.parent().addClass("has-error");
+	}
+	else{
+		$firstName.parent().removeClass("has-error");
+		$name.parent().removeClass("has-error");
+		$('#errorMsg').html("");	
+	}
+}
 
-//==============================================================================
-window.onload = function() { //Au chargement de la page
-	
-	$name.keydown(function(){
-		if($name.val().length < 1){
-			$name.parent().addClass("has-error");
-		}
-		else{
-			$name.parent().removeClass("has-error");
-			$firstName.parent().removeClass("has-error");
-			$('#errorMsg').html("");	
-		}
-	});
-
-	$firstName.keydown(function(){
-		if($firstName.val().length < 1){
-			$firstName.parent().addClass("has-error");
-		}
-		else{
-			$firstName.parent().removeClass("has-error");
-			$name.parent().removeClass("has-error");
-			$('#errorMsg').html("");	
-		}
-	});
-	
-	var updateSelectPere = function(data){
-		for(i = 0, max = data.length; i < max; i++ ){
-			$selectPere.append('<option value="'+data[i].structNomId+'">'+ data[i].structureLibelle +'</option>');
-		}
-	};
-	
-	//Charge valeur du selectPere
-	ajaxRequest('structureRequest.php', updateSelectPere);
-	
-	//A chaque changement de valeur du selectPere
-	$selectPere.on('change', function() {
-		var updateSelectFils = function(data){
-			$selectFils.empty();
-			$selectFils.append('<option selected disabled>--</option>');
-			for(i = 0, max = data.length; i < max; i++ ){
-				$selectFils.append('<option value="'+data[i].structure.structId+'">'+ data[i].structureLibelle +'</option>');
-			}
-		};
-		data = {
-			lid: $(this).val()
-		};
-		//Charge Valeur du selectFils
-		ajaxRequest('structureRequest.php', updateSelectFils, data);
-	});
-};
+//Listeners
+$name.keydown(nameVerification);
+$firstName.keydown(firstNameVerification);
 
