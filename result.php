@@ -31,7 +31,7 @@
 						// We get the data
 						$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/resultstruct?pere='.$selectPere.'&fils='.$selectFils);					
 					}
-					elseif(!empty($_POST['nom']) and !empty($_POST['prenom'])){
+					elseif(isset($_POST['nom']) and isset($_POST['prenom'])){
 						// The user searches people using their name
 						$normalAccess = true;
 						$surnameLower = strtolower(htmlspecialchars($_POST['nom']));
