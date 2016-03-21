@@ -32,7 +32,7 @@
 							<div class="tab-content">
 								<?php 
 									include("./formulaire_individu.php"); 
-									include("./formulaire_structure.html"); 
+									include("./formulaire_structure.php"); 
 								?>
 							</div>
 					</div>
