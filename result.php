@@ -16,6 +16,12 @@
 			?>
 			<section>
 				<?php
+					if(!empty($_POST['selectPere'])){
+						echo($_POST['selectPere']);
+					}
+					if(!empty($_POST['selectFils'])){
+						echo($_POST['selectFils']);
+					}
 					$surnameLower = strtolower(htmlspecialchars($_POST['nom']));
 					$nameLower = strtolower(htmlspecialchars($_POST['prenom']));
 					$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/result?nom='.$surnameLower.'&prenom='.$nameLower); 
@@ -113,7 +119,7 @@
 						}
 					}
 					$link = "./index.php?name=".$nameLower."&surname=".$surnameLower;
-					echo("<div id=\"centered\"><a class=\"text-center btn btn-default\" href=\"".$link."\">Vers le formulaire du trombinosope <span class=\"glyphicon glyphicon-search\"></span></a></div>");
+					echo("<div id=\"centered\"><a class=\"text-center btn btn-default\" href=\"".$link."\">Vers le formulaire du trombinosope <span class=\"glyphicon glyphicon-search\"></span></a></div>");*/
 				?>				
 			</section>
 			<?php include("./footer.php"); ?>
