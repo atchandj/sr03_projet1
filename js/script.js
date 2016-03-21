@@ -16,8 +16,8 @@ var errorMsgStruct ='<div id="errorMsgStruct" class="alert alert-danger" role="a
 '!</div>';
 
 function controlPeopleForm(){
-	nameVerification();
-	firstNameVerification();
+	verificationFormElement($name);
+	verificationFormElement($firstName);
 	if($name.parent().hasClass('has-error') || $name.parent().hasClass('has-error')){
 		$('#errorMsg').html(errorMsg);
 		return false;
@@ -34,22 +34,10 @@ function controlStructForm(){
 	return true;
 }
 
-//Vérifis que le nom est bien rempli
-function nameVerification(){
-	if($name.val().length < 1){
-		$name.parent().addClass("has-error");
-	}
-	else{
-		$name.parent().removeClass("has-error");
-		$firstName.parent().removeClass("has-error");
-		$('#errorMsg').html("");	
-	}
-}
-
-//Vérifis que le prénom est bien rempli
-function firstNameVerification(){
-	if($firstName.val().length < 1){
-		$firstName.parent().addClass("has-error");
+//Vérifis qu'un élément du formulaire des individu est rempli
+function verificationFormElement($formElement){
+	if($firstName.val().length < 1 && $name.val().length < 1){
+		$formElement.parent().addClass("has-error");
 	}
 	else{
 		$firstName.parent().removeClass("has-error");
@@ -59,6 +47,6 @@ function firstNameVerification(){
 }
 
 //Listeners
-$name.keydown(nameVerification);
-$firstName.keydown(firstNameVerification);
+$name.keydown(verificationFormElement($name););
+$firstName.keydown(verificationFormElement($firstName););
 
