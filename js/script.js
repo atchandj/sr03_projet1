@@ -53,7 +53,7 @@ function ajaxRequest(url, callback, data){
     });
 }
 
-function nameVer
+//function nameVer
 
 //==============================================================================
 window.onload = function() { //Au chargement de la page
