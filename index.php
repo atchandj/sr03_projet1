@@ -31,8 +31,8 @@
 						</nav>
 							<div class="tab-content">
 								<?php 
-									include("./formulaire_individu.php"); 
-									include("./formulaire_structure.php"); 
+									include("formulaire/individu.php"); 
+									include("formulaire/structure.php"); 
 								?>
 							</div>
 					</div>
