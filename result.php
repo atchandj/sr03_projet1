@@ -23,7 +23,7 @@
 						$normalAccess = true;
 						$selectPere = htmlspecialchars($_POST['selectPere']);
 						// We set the value of child node
-						$selectFils = (!empty($_POST['selectFils'])) ?  htmlspecialchars($_POST['selectFils']) : 0;
+						$selectFils = (!empty($_POST['selectFils'])) ? htmlspecialchars($_POST['selectFils']) : 0;
 						// We get the data
 						$result = getDataFromUrl($url.'struct?pere='.$selectPere.'&fils='.$selectFils);
 					}
@@ -39,11 +39,11 @@
 						echo("<p>Bien essayé.</p>");
 					}
 					if($normalAccess){
-						if(curl_errno($result->curl)){
+						if(!$result['data'] || $result['curl_info']['http_code'] != 200){
 							echo("<p>Echec d'accès aux résultats, veuillez réessayer.</p>");
 						}
 						else{		
-							$json = json_decode($result->data, true);		
+							$json = json_decode($result['data'], true);		
 							$currentNumberOfImagesPerRow = 0;
 							$maxNumberOfImagesPerRow = 4;
 							$totalNumberOfImages = 0;

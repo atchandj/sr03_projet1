@@ -3,7 +3,8 @@
 		$curl = curl_init($url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, false);
-		$result = (object) array('curl' => $curl, 'data' => curl_exec($curl));
+		$result = array('data' => curl_exec($curl), 'curl_errno' => curl_errno($curl), 'curl_error' => curl_error($curl), 'curl_info' => curl_getinfo($curl));
+		curl_close($curl);
 		return $result;
 	}
 	
