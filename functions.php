@@ -8,6 +8,10 @@
 		return $result;
 	}
 	
+	function displayGoToIndexButton($link){
+		echo("<div id=\"centered\"><a class=\"text-center btn btn-default\" href=\"".$link."\">Vers le formulaire du trombinosope <span class=\"glyphicon glyphicon-search\"></span></a></div>");
+	}
+
 	function displayPerson($data){
 		echo("<div class=\"col-md-3\">"); // Beginning of the column
 		$login = $data['login'];	

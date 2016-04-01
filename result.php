@@ -38,6 +38,11 @@
 						// The user should not be here.
 						echo("<p>Bien essayé.</p>");
 					}
+					if(!empty($nameLower) || !empty($surnameLower)){
+						$link = "./index.php?name=".$nameLower."&surname=".$surnameLower;
+					}else{
+						$link = "./index.php";			
+					}
 					if($normalAccess){
 						if(!$result['data'] || $result['curl_info']['http_code'] != 200){
 							echo("<p>Echec d'accès aux résultats, veuillez réessayer.</p>");
@@ -53,8 +58,11 @@
 							}
 							else{
 								// echo('<pre>'.print_r($json, true).'</pre>'); // Test
-								echo('<figure>');
 								$totalNumberOfImages = count($json);
+								if($totalNumberOfImages > $maxNumberOfImagesPerRow){
+									displayGoToIndexButton($link);
+								}
+								echo('<figure>');								
 								foreach ($json  as $key => $value){	
 									if($currentNumberOfImagesPerRow == 0){
 										echo("<div class=\"row\">"); // Beginning of the row
@@ -72,12 +80,7 @@
 							}
 						}
 					}
-					if(!empty($nameLower) and !empty($surnameLower)){
-						$link = "./index.php?name=".$nameLower."&surname=".$surnameLower;
-					}else{
-						$link = "./index.php";			
-					}
-					echo("<div id=\"centered\"><a class=\"text-center btn btn-default\" href=\"".$link."\">Vers le formulaire du trombinosope <span class=\"glyphicon glyphicon-search\"></span></a></div>");
+					displayGoToIndexButton($link);
 				?>				
 			</section>
 			<?php include("./footer.php"); ?>
