@@ -1,16 +1,13 @@
-<?php
-	
-	
+<?php	
 	if (is_ajax()) {
-		if (isset($_GET["lid"]) && !empty($_GET["lid"])) { //Checks if action value exists
-			$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/structfils?lid='.$_GET["lid"]); 
-			$json = json_decode($str, true);
-			echo json_encode($json);
+		if (!empty($_GET["lid"])) { //Checks if action value exists
+			$lid = htmlspecialchars($_GET["lid"]);
+			$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/structfils?lid='.$lid); 
+			echo $str;
 		}
 		else{
 			$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/structpere'); 
-			$json = json_decode($str, true);
-			echo json_encode($json);
+			echo $str;
 		}
 	}
 	//Function to check if the request is an AJAX request
