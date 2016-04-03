@@ -48,8 +48,7 @@
 							echo("<p>Echec d'accès aux résultats, veuillez réessayer.</p>");
 						}
 						else{		
-							$json = json_decode($result->data, true);
-							curl_close($result->curl);
+							$json = json_decode($result['data'], true);
 							$currentNumberOfImagesPerRow = 0;
 							$maxNumberOfImagesPerRow = 4;
 							$totalNumberOfImages = 0;

@@ -83,7 +83,7 @@
 		else{
 			$imageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login;
 			$imageContent = getDataFromUrl($imageURL);
-			if(substr($imageContent->data, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
+			if(substr($imageContent['data'], 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
 				echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 			}
 			else{
@@ -91,7 +91,6 @@
 				$bigImageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur?username=".$login;
 				echo("<a href=\"".$bigImageURL."\"><img class=\"img-responsive\" src=\"".$imageURL."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/></a>");
 			}
-			curl_close($imageContent->curl);
 		}		
 	}
 	
