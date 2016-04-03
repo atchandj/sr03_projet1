@@ -1,4 +1,8 @@
-<!-- Forumulaire pour recherche par individu -->
+<?php
+	/**
+	 * The form to make a research by individual.
+	 */	
+?>
 <div role="tabpanel" class="tab-pane active" id="individu">
 	<form method="post" action="result.php" onSubmit="return controlPeopleForm()">
 		<div class="panel panel-default">

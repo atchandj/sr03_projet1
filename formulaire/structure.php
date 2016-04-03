@@ -1,9 +1,13 @@
-<!-- Forumulaire pour recherche par structure -->
+<?php
+	/**
+	 * The form to make a research by structure.
+	 */	
+?>
 <div role="tabpanel" class="tab-pane" id="structure">
 	<form method="post" action="result.php" onSubmit="return controlStructForm()"> <!--Ajouter methode et fonction de validation-->
 		<div class="panel panel-default">
 			<div class="panel-heading" id="panel-heading-custom">
-				Rechercher par structure
+				Recherche par structure
 			</div>
 			<div class="panel-body">
 				<div class="form-group">

@@ -15,6 +15,14 @@ var errorMsgStruct ='<div id="subErrorMsgStruct" class="alert alert-danger" role
 '<span class="sr-only">Error:</span>Vous devez sélctionner une structure' + 
 '!</div>';
 
+/**
+ * The function to check the conformity of the "search by individual" form.  
+ * 
+ * In case of non conformity, this function adds an error message and returns 
+ * false. Otherwise, it returns true.
+ *
+ * @return boolean
+ */	
 function controlPeopleForm(){
 	verificationFormElement();
 	if($name.parent().hasClass('has-error') || $name.parent().hasClass('has-error')){
@@ -24,6 +32,14 @@ function controlPeopleForm(){
 	return true;
 }
 
+/**
+ * The function to check the conformity of the "search by structure" form.  
+ * 
+ * In case of non conformity, this function adds some error messages and returns 
+ * false. Otherwise, it returns true.
+ *
+ * @return boolean
+ */	
 function controlStructForm(){
 	if($selectPere.val() == null){
 		$selectPere.parent().addClass("has-error");
@@ -33,7 +49,12 @@ function controlStructForm(){
 	return true;
 }
 
-//Vérifies qu'un élément du formulaire des individu est rempli
+/**
+ * The function to check if at least one the elements of the "search by individual" form is complete.  
+ * 
+ * In case of non conformity, this function adds some error messages. Otherwise, it removes the added
+ * error messages.
+ */	
 function verificationFormElement(){
 	if($firstName.val().length < 2 && $name.val().length < 2){
 		$firstName.parent().addClass("has-error");
@@ -46,7 +67,7 @@ function verificationFormElement(){
 	}
 }
 
-//Listeners
+// Listeners
 $name.keyup(function(){
 	verificationFormElement();
 });

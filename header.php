@@ -1,19 +1,20 @@
 <style>
-.jumbotron{
-    background-color: #2d2d30;
-    color: #bdbdbd;
-}
+	.jumbotron{
+	    background-color: #2d2d30;
+	    color: #bdbdbd;
+	}
 </style>
 
-<?php 
+<?php
+	/**
+	 * The function to display the header of the web site.
+	 *
+	 * The goal of this function is to display the header of the
+	 * website using the subtitle given in parameter.
+	 *
+	 * @param string $subTitle The subtitle which should be displayed.
+	 */	
 	function displayHeader($subTitle){
-		/*
-			The goal of this function is to display 
-			the header.
-			Parameters:
-				- subTitle: the sub-title which
-				should be displayed
-		*/
 		echo("<header class=\"jumbotron text-center\">");
 		echo("<h1>Trombinoscope</h1>");
 		echo("<p>".$subTitle."</p>");
