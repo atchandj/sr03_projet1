@@ -19,8 +19,7 @@
 				<?php 
 					$surname = empty($_GET['surname'])?"":htmlspecialchars($_GET['surname']); 
 					$name = empty($_GET['name'])?"":htmlspecialchars($_GET['name']);
-				?>
-				
+				?>				
 				<div class="row">
 					<div class="col-md-4 col-lg-offset-4 " >
 						<nav>

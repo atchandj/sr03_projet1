@@ -1,12 +1,40 @@
 <?php
+	/**
+	 * The function to get some data using a GET HTTP request.  
+	 * 
+	 * This function makes a GET HTTP request to the URL given in
+	 * parameter. It's done using the PHP/cURL library.
+	 *
+	 * @param string $url The URL from which the data should be get.
+	 * 
+	 * @return array
+	 */	
 	function getDataFromUrl($url){
 		$curl = curl_init($url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, false);
-		$result = (object) array('curl' => $curl, 'data' => curl_exec($curl));
+		$result = array('data' => curl_exec($curl), 'curl_errno' => curl_errno($curl), 'curl_error' => curl_error($curl), 'curl_info' => curl_getinfo($curl));
+		curl_close($curl);
 		return $result;
 	}
 	
+	/**
+	 * The function to display the "Go to the index" button.  
+	 *
+	 * @param string $link The link to the index.
+	 */	
+	function displayGoToIndexButton($link){
+		echo("<div id=\"centered\"><a class=\"text-center btn btn-default\" href=\"".$link."\">Vers le formulaire du trombinosope <span class=\"glyphicon glyphicon-search\"></span></a></div>");
+	}
+
+	/**
+	 * The function to display a person.  
+	 * 
+	 * This function displays a person (his/her picture and his/her 
+	 * data) using the $data array given in parameter.
+	 *
+	 * @param array $data It contains some data of a person which should be displayed.
+	 */	
 	function displayPerson($data){
 		echo("<div class=\"col-md-3\">"); // Beginning of the column
 		$login = $data['login'];	
@@ -37,17 +65,23 @@
 		echo("</div>"); // End of the column
 	}
 	
+	/**
+	 * The function to display the picture of a person.  
+	 * 
+	 * This function displays the picture of a person
+	 * using some parameters.
+	 *
+	 * @param string $authorization It is used to know whether we are allowed to display the picture ("O" || "N").
+	 * @param string $nameAndSurname The name and the surname of the person.
+	 * @param string $login The login of the person.
+	 */	
 	function displayPhoto($authorization, $nameAndSurname, $login){
-		// Management of the display of the image and of the potential problems
+		// Management of the display of the image and of the potential problems.
 		if($authorization == "N"){
 			echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 		}
 		else{
 			$imageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login;
-			/*$imageContent = file_get_contents($imageURL);
-			if(substr($imageContent, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
-				echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
-			}*/
 			$imageContent = getDataFromUrl($imageURL);
 			if(substr($imageContent->data, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
 				echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
@@ -61,6 +95,20 @@
 		}		
 	}
 	
+	/**
+	 * The function to display some data of a person.  
+	 * 
+	 * This function displays some data of a person using
+	 * some parameters.
+	 *
+	 * @param string $tel1 The first phone number of the person.
+	 * @param string $tel2 The second phone number of the person.
+	 * @param string $office The office of the person.
+	 * @param string $structure The structure of the person. 
+	 * @param string $subStructure The sub structure of the person.
+	 * @param string $post The post of the person.
+	 * @param string $mail The mail of the person.
+	 */	
 	function displayData($tel1, $tel2, $office, $structure, $subStructure, $post, $mail){
 		if(!empty($tel1)){
 			$telephoneNumber = $tel1;

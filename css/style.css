@@ -33,8 +33,9 @@ footer{
 }
 
 .panel-default > .panel-footer-custom{
-	max-height: 221px;
+	min-height: 221px;
 }
+
 
 .panel-default > .panel-body-custom{
 	min-height: 218px;
