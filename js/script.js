@@ -50,7 +50,7 @@ function controlStructForm(){
 }
 
 /**
- * The function to check if at least one the elements of the "search by individual" form is complete.  
+ * The function to check if at least one of the elements of the "search by individual" form is complete.  
  * 
  * In case of non conformity, this function adds some error messages. Otherwise, it removes the added
  * error messages.

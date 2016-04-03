@@ -64,7 +64,6 @@
 		echo("</div>"); // End of the panel
 		echo("</div>"); // End of the column
 	}
-
 	
 	/**
 	 * The function to display the picture of a person.  
@@ -77,7 +76,7 @@
 	 * @param string $login The login of the person.
 	 */	
 	function displayPhoto($authorization, $nameAndSurname, $login){
-		// Management of the display of the image and of the potential problems
+		// Management of the display of the image and of the potential problems.
 		if($authorization == "N"){
 			echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 		}
