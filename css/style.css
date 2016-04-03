@@ -28,6 +28,18 @@ footer{
 	color: #bdbdbd;
 }
 
+.panel-default > .panel-heading-custom{
+	min-height: 103px;
+}
+
+.panel-default > .panel-footer-custom{
+	max-height: 221px;
+}
+
+.panel-default > .panel-body-custom{
+	min-height: 218px;
+}
+
 .panel{
 	margin-left: 15px;
 	margin-right: 15px;

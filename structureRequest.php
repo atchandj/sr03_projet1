@@ -1,6 +1,4 @@
 <?php
-	
-	
 	if (is_ajax()) {
 		if (isset($_GET["lid"]) && !empty($_GET["lid"])) { //Checks if action value exists
 			$str = file_get_contents('https://webapplis.utc.fr/Trombi_ws/mytrombi/structfils?lid='.$_GET["lid"]); 

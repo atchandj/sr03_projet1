@@ -22,14 +22,14 @@
 		$telephoneNumber = "";
 		echo("<div class=\"panel panel-default text-center\">"); // Beginning of the panel
 		echo("<div class=\"panel-heading panel-heading-custom\">"); // Beginning of the panel heading    
-		echo("<h1>".$nameAndSurname."</h1>");
+		echo("<h3>".$nameAndSurname."</h3>");
 		echo("</div>"); // End of the panel heading
 		
-		echo("<div class=\"panel-body\">"); // Beginning of the panel body
+		echo("<div class=\"panel-body panel-body-custom \">"); // Beginning of the panel body
 		displayPhoto($authorization, $nameAndSurname, $login);
 		echo("</div>"); // End of the panel body
 		
-		echo("<div class=\"panel-footer panel-footer-custom\">"); // Beginning of the panel footer
+		echo("<div class=\"panel-footer panel-footer-custom \" >"); // Beginning of the panel footer
 		displayData($tel1, $tel2, $office, $structure, $subStructure, $post, $mail);
 		echo("</div>"); // End of the panel footer
 		
@@ -44,15 +44,20 @@
 		}
 		else{
 			$imageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur_mini?username=".$login;
-			$imageContent = file_get_contents($imageURL);
+			/*$imageContent = file_get_contents($imageURL);
 			if(substr($imageContent, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
+				echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
+			}*/
+			$imageContent = getDataFromUrl($imageURL);
+			if(substr($imageContent->data, 0, strlen("PHOTO NON DISPONIBLE")) === "PHOTO NON DISPONIBLE"){
 				echo("<a href=\"./images/inconnu.jpg\"><img class=\"img-responsive\" src=\"./images/inconnu.jpg\" alt=\"Photo d'un inconnu\" title=\"".$nameAndSurname."\"/></a>");
 			}
 			else{
 				// If we are here, it means that everything is ok.
 				$bigImageURL = "https://demeter.utc.fr/portal/pls/portal30/portal30.get_photo_utilisateur?username=".$login;
 				echo("<a href=\"".$bigImageURL."\"><img class=\"img-responsive\" src=\"".$imageURL."\" alt=\"Photo de ".$nameAndSurname. "\" title=\"".$nameAndSurname."\"/></a>");
-			}							
+			}
+			curl_close($imageContent->curl);
 		}		
 	}
 	
