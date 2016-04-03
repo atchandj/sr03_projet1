@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Page d'accueil du trobinoscope</title>
+		<title>Page d'accueil du trombinoscope</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/style.css" rel="stylesheet">
 		<script src="js/jquery-2.2.2.min.js"></script>
