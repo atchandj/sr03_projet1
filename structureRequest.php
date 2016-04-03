@@ -1,4 +1,3 @@
-
 <?php	
 	include("./functions.php"); // There are some functions in this file.
 	$result = NULL;

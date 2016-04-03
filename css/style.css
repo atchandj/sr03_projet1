@@ -59,11 +59,10 @@ nav{
 	color: #2d2d30;
 }
 
-nav .nav-pills:first-child {
+nav .nav-pills:first-child{
 	margin-right: 5px;
 }
 
-nav .nav-pills>li.active>a{
+nav .nav-pills > li.active > a{
 	background-color: #2d2d30 !important;
 }
-
